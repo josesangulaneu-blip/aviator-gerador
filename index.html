@@ -1,22 +1,528 @@
+```html
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aviator Market 🇲🇿</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#080b10;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+/* =========================
+   BANNER
+========================= */
+
+header{
+    min-height:430px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:60px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.30),
+            rgba(0,0,0,.88)
+        ),
+        url("banner.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero{
+    max-width:750px;
+}
+
+.logo{
+    font-size:15px;
+    font-weight:bold;
+    letter-spacing:4px;
+    color:#35c4ff;
+    margin-bottom:15px;
+}
+
+header h1{
+    margin:0;
+    font-size:clamp(38px,8vw,70px);
+    font-weight:900;
+    text-shadow:0 4px 20px #000;
+}
+
+header h1 span{
+    color:#2dbbff;
+}
+
+header p{
+    max-width:600px;
+    margin:18px auto;
+    color:#e0e5eb;
+    font-size:17px;
+    line-height:1.6;
+}
+
+.whatsapp-top{
+    display:inline-block;
+    margin-top:12px;
+    padding:15px 25px;
+    background:#18bd5b;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+main{
+    width:100%;
+    max-width:1250px;
+    margin:auto;
+    padding:40px 16px 60px;
+}
+
+.titulo{
+    margin-bottom:25px;
+}
+
+.titulo h2{
+    margin:0 0 7px;
+    font-size:28px;
+}
+
+.titulo p{
+    margin:0;
+    color:#8995a5;
+}
+
+/* =========================
+   MARKETPLACE
+========================= */
+
+.produtos{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.produto{
+    overflow:hidden;
+    background:#121821;
+    border:1px solid #222c38;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+    transition:.25s;
+}
+
+.produto:hover{
+    transform:translateY(-5px);
+    border-color:#229dd8;
+}
+
+/* =========================
+   IMAGENS VERTICAIS
+========================= */
+
+.imagem{
+    width:100%;
+    aspect-ratio:4/5;
+    overflow:hidden;
+    background:#05070a;
+}
+
+.imagem img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    object-position:center;
+}
+
+/* Corte especial da Better Hacker */
+
+.better .imagem img{
+    transform:scale(1.08);
+    object-position:center 45%;
+}
+
+/* =========================
+   CARD INFO
+========================= */
+
+.info-produto{
+    padding:16px;
+}
+
+.info-produto h3{
+    margin:0;
+    font-size:19px;
+}
+
+.descricao{
+    color:#929dac;
+    font-size:13px;
+    line-height:1.5;
+    min-height:58px;
+    margin:9px 0 15px;
+}
+
+/* =========================
+   PERCENTAGEM
+========================= */
+
+.percentagem{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 12px;
+    margin-bottom:12px;
+
+    background:#0c2737;
+    border:1px solid #12445d;
+    border-radius:9px;
+}
+
+.percentagem span{
+    color:#91a1af;
+    font-size:12px;
+}
+
+.percentagem strong{
+    color:#35c4ff;
+    font-size:22px;
+}
+
+/* =========================
+   DURAÇÃO
+========================= */
+
+.duracao{
+    display:flex;
+    justify-content:space-between;
+    padding:9px 0;
+    border-top:1px solid #202934;
+    color:#8995a5;
+    font-size:13px;
+}
+
+.duracao strong{
+    color:white;
+}
+
+/* =========================
+   PREÇO
+========================= */
+
+.preco{
+    margin-top:12px;
+    font-size:26px;
+    font-weight:900;
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.comprar{
+    display:block;
+    margin-top:14px;
+    padding:13px 8px;
+
+    text-align:center;
+    text-decoration:none;
+
+    background:#18bd5b;
+    color:white;
+
+    border-radius:9px;
+
+    font-size:12px;
+    font-weight:900;
+
+    transition:.2s;
+}
+
+.comprar:hover{
+    background:#21d76c;
+}
+
+/* =========================
+   COMO COMPRAR
+========================= */
+
+.como{
+    margin-top:55px;
+}
+
+.como h2{
+    margin-bottom:22px;
+}
+
+.passos{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.passo{
+    padding:22px;
+    background:#111720;
+    border:1px solid #222c38;
+    border-radius:13px;
+}
+
+.numero{
+    width:35px;
+    height:35px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+    background:#168fc8;
+
+    font-weight:bold;
+    margin-bottom:13px;
+}
+
+.passo h3{
+    margin:0 0 8px;
+}
+
+.passo p{
+    margin:0;
+    color:#8995a5;
+    font-size:13px;
+    line-height:1.5;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:30px 15px;
+    text-align:center;
+    color:#667384;
+    border-top:1px solid #19212b;
+    font-size:12px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:1000px){
+
+    .produtos{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:700px){
+
+    header{
+        min-height:400px;
+        padding:45px 16px;
+    }
+
+    header h1{
+        font-size:40px;
+    }
+
+    header p{
+        font-size:14px;
+    }
+
+    main{
+        padding:30px 12px 50px;
+    }
+
+    .produtos{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .produto{
+        border-radius:12px;
+    }
+
+    .info-produto{
+        padding:12px;
+    }
+
+    .info-produto h3{
+        font-size:16px;
+    }
+
+    .descricao{
+        font-size:11px;
+        min-height:65px;
+    }
+
+    .percentagem{
+        padding:8px;
+    }
+
+    .percentagem strong{
+        font-size:18px;
+    }
+
+    .preco{
+        font-size:21px;
+    }
+
+    .comprar{
+        font-size:10px;
+        padding:12px 4px;
+    }
+
+    .passos{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* =========================
+   CELULAR PEQUENO
+========================= */
+
+@media(max-width:360px){
+
+    .produtos{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     BANNER
+========================= -->
+
+<header>
+
+<div class="hero">
+
+<div class="logo">
+🇲🇿 AVIATOR MARKET
+</div>
+
+<h1>
+GERADORES <span>AVIATOR</span>
+</h1>
+
+<p>
+Escolha entre diferentes opções de geradores
+e veja os detalhes de cada produto.
+</p>
+
+<a
+class="whatsapp-top"
+href="https://wa.me/258846628752"
+target="_blank"
+rel="noopener"
+>
+💬 FALAR NO WHATSAPP
+</a>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<!-- =========================
+     PRODUTOS
+========================= -->
+
+<div class="titulo">
+
+<h2>
+🔥 Geradores disponíveis
+</h2>
+
+<p>
+Escolha o produto que deseja conhecer.
+</p>
+
+</div>
+
+
 <section class="produtos">
 
+
+<!-- 1 -->
+
 <article class="produto">
+
+<div class="imagem">
 
 <img
 src="images.png"
 alt="Hacker Aviator"
 >
 
+</div>
+
+<div class="info-produto">
+
 <h3>
 Hacker Aviator
 </h3>
 
+<p class="descricao">
+Gerador de sinais Aviator com acesso
+permanente e opção de entrada.
+</p>
+
 <div class="percentagem">
-50%
+
+<span>Sinal anunciado</span>
+
+<strong>50%</strong>
+
 </div>
 
 <div class="duracao">
-⏳ Duração: Permanente
+
+<span>⏳ Duração</span>
+
+<strong>Permanente</strong>
+
 </div>
 
 <div class="preco">
@@ -29,29 +535,52 @@ href="https://wa.me/258846628752?text=Olá%2C%20tenho%20interesse%20no%20Hacker%
 target="_blank"
 rel="noopener"
 >
-💬 COMPRAR NO WHATSAPP
+💬 COMPRAR
 </a>
+
+</div>
 
 </article>
 
 
+<!-- 2 -->
+
 <article class="produto">
+
+<div class="imagem">
 
 <img
 src="images (7).jpeg"
 alt="Cyber Hacker"
 >
 
+</div>
+
+<div class="info-produto">
+
 <h3>
 Cyber Hacker
 </h3>
 
+<p class="descricao">
+Opção avançada para quem procura
+um gerador com sinal anunciado de 65%.
+</p>
+
 <div class="percentagem">
-65%
+
+<span>Sinal anunciado</span>
+
+<strong>65%</strong>
+
 </div>
 
 <div class="duracao">
-⏳ Duração: Permanente
+
+<span>⏳ Duração</span>
+
+<strong>Permanente</strong>
+
 </div>
 
 <div class="preco">
@@ -64,29 +593,52 @@ href="https://wa.me/258846628752?text=Olá%2C%20tenho%20interesse%20no%20Cyber%2
 target="_blank"
 rel="noopener"
 >
-💬 COMPRAR NO WHATSAPP
+💬 COMPRAR
 </a>
+
+</div>
 
 </article>
 
 
+<!-- 3 -->
+
 <article class="produto">
+
+<div class="imagem">
 
 <img
 src="images (6).jpeg"
 alt="Best Hacker Aviator"
 >
 
+</div>
+
+<div class="info-produto">
+
 <h3>
 Best Hacker Aviator
 </h3>
 
+<p class="descricao">
+Versão premium com sinal anunciado
+de 85% e acesso permanente.
+</p>
+
 <div class="percentagem">
-85%
+
+<span>Sinal anunciado</span>
+
+<strong>85%</strong>
+
 </div>
 
 <div class="duracao">
-⏳ Duração: Permanente
+
+<span>⏳ Duração</span>
+
+<strong>Permanente</strong>
+
 </div>
 
 <div class="preco">
@@ -99,29 +651,52 @@ href="https://wa.me/258846628752?text=Olá%2C%20tenho%20interesse%20no%20Best%20
 target="_blank"
 rel="noopener"
 >
-💬 COMPRAR NO WHATSAPP
+💬 COMPRAR
 </a>
+
+</div>
 
 </article>
 
 
-<article class="produto">
+<!-- 4 -->
+
+<article class="produto better">
+
+<div class="imagem">
 
 <img
 src="images (8).jpeg"
 alt="Better Hacker Aviator"
 >
 
+</div>
+
+<div class="info-produto">
+
 <h3>
 Better Hacker Aviator
 </h3>
 
+<p class="descricao">
+Nossa opção premium com sinal anunciado
+de 100% e acesso permanente.
+</p>
+
 <div class="percentagem">
-100%
+
+<span>Sinal anunciado</span>
+
+<strong>100%</strong>
+
 </div>
 
 <div class="duracao">
-⏳ Duração: Permanente
+
+<span>⏳ Duração</span>
+
+<strong>Permanente</strong>
+
 </div>
 
 <div class="preco">
@@ -134,9 +709,99 @@ href="https://wa.me/258846628752?text=Olá%2C%20tenho%20interesse%20no%20Better%
 target="_blank"
 rel="noopener"
 >
-💬 COMPRAR NO WHATSAPP
+💬 COMPRAR
 </a>
+
+</div>
 
 </article>
 
+
 </section>
+
+
+<!-- =========================
+     COMO COMPRAR
+========================= -->
+
+<section class="como">
+
+<h2>
+📲 Como comprar
+</h2>
+
+<div class="passos">
+
+
+<div class="passo">
+
+<div class="numero">
+1
+</div>
+
+<h3>
+Escolha
+</h3>
+
+<p>
+Veja os geradores disponíveis e
+escolha a opção desejada.
+</p>
+
+</div>
+
+
+<div class="passo">
+
+<div class="numero">
+2
+</div>
+
+<h3>
+Clique em Comprar
+</h3>
+
+<p>
+O botão abrirá automaticamente
+uma conversa no WhatsApp.
+</p>
+
+</div>
+
+
+<div class="passo">
+
+<div class="numero">
+3
+</div>
+
+<h3>
+Fale connosco
+</h3>
+
+<p>
+Envie a mensagem automática e
+receba as informações da compra.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+AVIATOR MARKET • 🇲🇿 MOÇAMBIQUE
+
+</footer>
+
+
+</body>
+</html>
+```
